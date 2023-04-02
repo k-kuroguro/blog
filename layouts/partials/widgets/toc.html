@@ -1,0 +1,8 @@
+{{- if and (.IsPage) (.Page.TableOfContents) (ne .Page.TableOfContents "<nav id=\"TableOfContents\"></nav>") }}
+<div class="widget-toc widget">
+   <h4 class="widget__title">{{ T "toc_title" }}</h4>
+   <div class="widget__content">
+      {{ .Page.TableOfContents }}
+   </div>
+</div>
+{{- end }}

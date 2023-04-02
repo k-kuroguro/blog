@@ -1,0 +1,91 @@
+baseurl = 'https://k-kuroguro.github.io/blog/'
+title = 'kuroguro.log'
+languageCode = 'ja-jp'
+DefaultContentLanguage = 'ja'
+hasCJKLanguage = true
+paginate = '10'
+theme = 'mainroad'
+enableRobotsTXT = true
+googleAnalytics = 'G-55P6T5SFGB'
+enableGitInfo = true
+
+[permalinks]
+   posts = '/posts/:slug/'
+
+[markup.goldmark.renderer]
+   unsafe = true
+
+[Author]
+   name = 'くろぐろ'
+   bio = 'プログラミングが趣味の大学生.'
+   avatar = 'images/avatar.png'
+
+[Params]
+   description = 'くろぐろの技術ブログ'
+   copyright = 'k-kuroguro'
+   opengraph = true
+   twitter_cards = true
+   readmore = false
+   authorbox = true
+   pager = true
+   comments = true
+   toc = false
+   dateformat = '2006-01-02'
+   post_meta = ['date', 'categories', 'tags']
+   mainSections = ['posts']
+   mathjax = true
+   mathjaxPath = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js'
+   mathjaxConfig = 'TeX-AMS-MML_HTMLorMML'
+   customCSS = ['css/notosansjp.css', 'css/custom.css']
+
+[Params.style.vars]
+   highlightColor = '#F9625F'
+
+[Params.logo]
+   image = false
+   subtitle = false
+
+[Params.thumbnail]
+   visibility = ['list']
+
+[Params.sidebar]
+   home = 'right'
+   list = 'right'
+   single = 'right'
+   widgets = ['search', 'toc', 'recent', 'categories', 'taglist', 'social', 'twitter']
+
+[Params.widgets]
+   recent_num = 5
+   tags_counter = false
+
+[Params.widgets.social]
+   github = 'k-kuroguro'
+   twitter = 'k_kuroguro'
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[[Menus.main]]
+  Name = 'About'
+  URL = '/about/'
+  weight = 1
+[[Menus.main]]
+  Name = 'Categories'
+  URL = '/categories/'
+  weight = 2
+[[Menus.main]]
+  Name = 'Tags'
+  URL = '/tags/'
+  weight = 3
+[[Menus.main]]
+  Name = 'Archives'
+  URL = '/archives/'
+  weight = 4
+[[Menus.main]]
+  Name = 'RSS'
+  URL = '/posts/index.xml'
+  weight = 5
+
+[sitemap]
+   filename = 'sitemap.xml'
