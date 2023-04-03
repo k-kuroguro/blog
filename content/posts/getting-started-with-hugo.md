@@ -13,6 +13,8 @@ categories:
 
 Update 1.
 
+Update 2.
+
 ## Step 1. Install Hugo
 
 Go to [Hugo releases](https://github.com/spf13/hugo/releases) and download the
