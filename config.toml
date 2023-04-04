@@ -37,12 +37,12 @@ enableGitInfo = true
    mathjaxPath = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js'
    mathjaxConfig = 'TeX-AMS-MML_HTMLorMML'
    customCSS = ['css/notosansjp.css', 'css/custom.css']
+   images = ['images/icon.png']
 
 [Params.style.vars]
    highlightColor = '#F9625F'
 
 [Params.logo]
-   image = false
    subtitle = false
 
 [Params.thumbnail]
