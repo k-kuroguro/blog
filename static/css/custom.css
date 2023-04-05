@@ -40,6 +40,21 @@ body {
 	border-bottom: 1px solid #dadada;
 }
 
+/* author box */
+.authorbox {
+	border-top: 1px solid #dadada;
+	border-bottom: 1px solid #dadada;
+}
+
+.authorbox__avatar {
+	border: 0;
+}
+
+/* pager */
+.pager {
+	border-bottom: 1px solid #dadada;
+}
+
 /* toc */
 .widget-toc li > ul {
 	padding-left: 5px;
