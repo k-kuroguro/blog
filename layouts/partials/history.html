@@ -1,0 +1,16 @@
+{{- if .Param "history" }}
+<details class="history clearfix">
+   <summary>編集履歴</summary>
+   <ul class="history__list">
+      {{ range index .Site.Data.commit_history (replaceRE "[!-/:-@[-^`{-~]" "" .Page.File.ContentBaseName) }}
+      <li class="history__item">
+         {{ (time .date).Local.Format "2006-01-02 15:04" }}
+         &ensp;
+         <a href="{{ .github_url | safeURL }}">
+            {{ .subject }}
+         </a>
+      </li>
+      {{ end }}
+   </ul>
+</details>
+{{- end }}

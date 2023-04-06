@@ -29,6 +29,7 @@ enableGitInfo = true
    authorbox = true
    pager = true
    comments = true
+   history = true
    toc = false
    dateformat = '2006-01-02'
    post_meta = ['date', 'categories', 'tags']
