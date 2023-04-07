@@ -1,6 +1,7 @@
 import { walkSync } from 'https://deno.land/std@0.179.0/fs/walk.ts';
 import { basename, dirname, join, sep } from 'https://deno.land/std@0.179.0/path/mod.ts';
 import { sha256 } from 'https://denopkg.com/chiefbiiko/sha256@v1.0.0/mod.ts';
+import { equal } from 'https://deno.land/x/equal@v1.5.0/mod.ts';
 
 type Commit = {
    'id': string;
@@ -90,9 +91,18 @@ const toHistoryDict = (
    return result;
 };
 
-const writeJsonFile = (json: HistoryDict, data_dir: string) =>
+const readJsonFile = (data_file: string): HistoryDict => {
+   try {
+      const str = Deno.readTextFileSync(data_file);
+      return JSON.parse(str);
+   } catch {
+      return {};
+   }
+};
+
+const writeJsonFile = (json: HistoryDict, data_file: string) =>
    Deno.writeTextFileSync(
-      join(data_dir, `commit_history.json`),
+      data_file,
       JSON.stringify(json),
    );
 
@@ -101,7 +111,7 @@ const deleteBadChars = (str: string): string => str.replaceAll(/[!-/:-@[-^`{-~]/
 
 const main = async () => {
    const posts_dir = join('content', 'posts');
-   const data_dir = 'data';
+   const data_file = join('data', 'commit_history.json');
 
    const post_paths = getPostPaths(posts_dir);
    const post_names = toNames(post_paths);
@@ -111,7 +121,8 @@ const main = async () => {
       .map((result) => toHistory(result.output));
    const json = toHistoryDict(post_names, histories);
 
-   writeJsonFile(json, data_dir);
+   const old = readJsonFile(data_file);
+   if (!equal(json, old)) writeJsonFile(json, data_file);
 };
 
 main();
