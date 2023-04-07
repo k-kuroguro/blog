@@ -1,0 +1,17 @@
+# Update RSS & sitemap.
+# Referenced from https://github.com/c-a-p-engineer/c-a-p-engineer.github.io/blob/master/.github/workflows/update-sitemap.yml.
+name: Update RSS & Sitemap
+
+on:
+  schedule:
+    - cron: "0 0,12 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Update Google Ping RSS & Sitemap
+        run: |
+          curl -X GET "http://www.google.com/ping?sitemap=https://k-kuroguro.github.io/blog/index.xml"
+          curl -X GET "http://www.google.com/ping?sitemap=https://k-kuroguro.github.io/blog/sitemap.xml"
