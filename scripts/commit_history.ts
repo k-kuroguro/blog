@@ -70,7 +70,11 @@ const toHistory = (
    raw_output: Uint8Array,
 ): History => {
    const jsonString = '[' + new TextDecoder().decode(raw_output).slice(0, -1) + ']';
-   return JSON.parse(jsonString);
+   const history: History = JSON.parse(jsonString);
+   return history.filter((commit) => commit.subject.startsWith('docs:')).map((commit) => ({
+      ...commit,
+      subject: commit.subject.replace(/^docs: /, ''),
+   }));
 };
 
 const toHistoryDict = (
