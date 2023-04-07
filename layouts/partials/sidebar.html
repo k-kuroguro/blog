@@ -1,0 +1,37 @@
+{{- $sidebar := false }}
+{{- if eq .Kind "home" -}}
+	{{ $sidebar = (default .Site.Params.sidebar.home .Params.sidebar) }}
+{{- else if eq .Kind "page" -}}
+	{{ $sidebar = (default .Site.Params.sidebar.single .Params.sidebar) }}
+{{- else -}}
+	{{ $sidebar = (default .Site.Params.sidebar.list .Params.sidebar) }}
+{{ end }}
+
+{{- $widgets := false }}
+{{- $sticky := false }}
+{{- if eq .Kind "page" -}}
+   {{- if eq .Page.Type "posts" -}}
+      {{ $widgets = (default .Site.Params.sidebar.widgets.default (default (index .Site.Params.sidebar.widgets.page) .Params.widgets)) }}
+      {{ $sticky = true }}
+   {{- else -}}
+      {{ $widgets = (default .Site.Params.sidebar.widgets.default .Params.widgets) }}
+   {{ end }}
+{{- else -}}
+	{{ $widgets = (default .Site.Params.sidebar.widgets.default (default (index .Site.Params.sidebar.widgets .Kind) .Params.widgets)) }}
+{{ end }}
+
+
+
+{{- if $sidebar -}}
+<aside class="sidebar{{ if eq $sidebar "left" }} sidebar--left{{ end }}{{ if $sticky }} sidebar__sticky{{ end }}">
+{{- $root := . }}
+{{- with $widgets -}}
+	{{- range $widget := . }}
+		{{- $p := printf "widgets/%s.html" $widget }}
+		{{- partial $p $root }}
+	{{- end }}
+{{- else }}
+	<p class="sidebar__warning"><strong>{{ T "sidebar_warning" }}:</strong><br>{{ T "sidebar_recommendation" }}</p>
+{{- end }}
+</aside>
+{{- end }}
