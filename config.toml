@@ -31,7 +31,7 @@ enableGitInfo = true
    opengraph = true
    twitter_cards = true
    readmore = false
-   authorbox = true
+   authorbox = false
    pager = true
    comments = true
    history = true
@@ -60,14 +60,18 @@ enableGitInfo = true
    single = 'right'
 
 [Params.sidebar.widgets]
-   default = ['search', 'recent', 'categories', 'taglist', 'social']
-   page = ['toc']
+   default = ['search', 'author', 'recent', 'categories', 'taglist']
+   page = ['author', 'toc']
 
 [Params.widgets]
    recent_num = 5
    tags_counter = false
 
 [Params.widgets.social]
+   github = 'k-kuroguro'
+   twitter = 'k_kuroguro'
+
+[Params.widgets.author]
    github = 'k-kuroguro'
    twitter = 'k_kuroguro'
 

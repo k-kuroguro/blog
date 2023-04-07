@@ -1,0 +1,38 @@
+<div class="widget-author widget">
+   <h4 class="widget-author__title widget__title">{{ T "author_title" }}</h4>
+   <div class="widget-author__content widget__content">
+      {{- if and (not .Site.Author.avatar) (not .Site.Author.name) (not .Site.Author.bio) }}
+      <p class="widget-author__warning">
+         <strong>WARNING:</strong> [Author] parameters are not specified.
+      </p>
+      {{- end }}
+      {{- with .Site.Author.avatar }}
+      <figure class="widget-author__avatar">
+         <img alt="{{ $.Site.Author.name }} avatar" src="{{ $.Site.Author.avatar | relURL }}" class="avatar" height="90"
+            width="90">
+      </figure>
+      {{- end }}
+      {{- with .Site.Author.name }}
+         <div class="widget-author__header">
+            <span class="widget-author__name">{{ . }}</span>
+            {{- if $.Site.Params.widgets.author }}
+               {{- with $.Site.Params.widgets.author.github }}
+                  <a class="widget-author__link widget__link" title="GitHub" rel="noopener noreferrer" href="https://github.com/{{ . }}" target="_blank">
+                     {{ partial "svg/github.svg" (dict "class" "widget-author__link-icon") }}
+                  </a>
+               {{- end }}
+               {{- with $.Site.Params.widgets.author.twitter }}
+               <a class="widget-author__link widget__link" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/{{ . }}" target="_blank">
+                  {{ partial "svg/twitter.svg" (dict "class" "widget-author__link-icon") }}
+               </a>
+               {{- end }}
+            {{- end }}
+         </div>
+      {{- end }}
+      {{- with .Site.Author.bio }}
+         <div class="author__description">
+            {{ . | markdownify }}
+         </div>
+      {{- end }}
+   </div>
+</div>

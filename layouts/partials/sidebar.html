@@ -20,18 +20,26 @@
 	{{ $widgets = (default .Site.Params.sidebar.widgets.default (default (index .Site.Params.sidebar.widgets .Kind) .Params.widgets)) }}
 {{ end }}
 
-
+{{ define "allWidgets" -}}
+   {{- $root := .page }}
+   {{- with .widgets -}}
+      {{- range $widget := . }}
+         {{- $p := printf "widgets/%s.html" $widget }}
+         {{- partial $p $root }}
+      {{- end }}
+   {{- else }}
+      <p class="sidebar__warning"><strong>{{ T "sidebar_warning" }}:</strong><br>{{ T "sidebar_recommendation" }}</p>
+   {{- end }}
+{{- end -}}
 
 {{- if $sidebar -}}
-<aside class="sidebar{{ if eq $sidebar "left" }} sidebar--left{{ end }}{{ if $sticky }} sidebar__sticky{{ end }}">
-{{- $root := . }}
-{{- with $widgets -}}
-	{{- range $widget := . }}
-		{{- $p := printf "widgets/%s.html" $widget }}
-		{{- partial $p $root }}
-	{{- end }}
-{{- else }}
-	<p class="sidebar__warning"><strong>{{ T "sidebar_warning" }}:</strong><br>{{ T "sidebar_recommendation" }}</p>
-{{- end }}
+<aside class="sidebar{{ if eq $sidebar "left" }} sidebar--left{{ end }}">
+   {{- if $sticky }}
+      <div class="sidebar__sticky-wrapper">
+         {{ template "allWidgets" (dict "page" . "widgets" $widgets) }}
+      </div>
+   {{- else }}
+      {{ template "allWidgets" (dict "page" . "widgets" $widgets) }}
+   {{- end }}
 </aside>
 {{- end }}

@@ -65,6 +65,10 @@
 - id: tags_title
   translation: "タグ"
 
+# Author widget
+- id: author_title
+  translation: "著者"
+
 # Footer
 - id: footer_credits
   translation:
