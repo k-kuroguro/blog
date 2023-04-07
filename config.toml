@@ -60,7 +60,7 @@ enableGitInfo = true
    single = 'right'
 
 [Params.sidebar.widgets]
-   default = ['search', 'recent', 'categories', 'taglist', 'social', 'twitter']
+   default = ['search', 'recent', 'categories', 'taglist', 'social']
    page = ['toc']
 
 [Params.widgets]
