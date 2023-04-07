@@ -26,6 +26,10 @@
 - id: post_nav_next
   translation: "次の投稿"
 
+# History
+- id: history_title
+  translation: "編集履歴"
+
 # Authorbox
 - id: authorbox_name
   translation: "{{ .Name }}"
