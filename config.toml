@@ -71,25 +71,29 @@ enableGitInfo = true
   category = "categories"
 
 [[Menus.main]]
+  Name = 'Home'
+  URL = '/'
+  weight = 1
+[[Menus.main]]
   Name = 'About'
   URL = '/about/'
-  weight = 1
+  weight = 2
 [[Menus.main]]
   Name = 'Categories'
   URL = '/categories/'
-  weight = 2
+  weight = 3
 [[Menus.main]]
   Name = 'Tags'
   URL = '/tags/'
-  weight = 3
+  weight = 4
 [[Menus.main]]
   Name = 'Archives'
   URL = '/archives/'
-  weight = 4
+  weight = 5
 [[Menus.main]]
   Name = 'RSS'
   URL = '/posts/index.xml'
-  weight = 5
+  weight = 6
 
 [sitemap]
    filename = 'sitemap.xml'
