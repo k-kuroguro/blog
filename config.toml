@@ -15,6 +15,11 @@ enableGitInfo = true
 [markup.goldmark.renderer]
    unsafe = true
 
+[markup.tableOfContents]
+   endLevel = 3
+   ordered = false
+   startLevel = 2
+
 [Author]
    name = 'くろぐろ'
    bio = 'プログラミングが趣味の大学生.'

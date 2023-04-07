@@ -38,16 +38,7 @@ body {
 .sidebar__sticky {
    position: sticky;
    align-self: start;
-   top: 20px;
-}
-
-.sidebar__sticky>.widget-toc>.widget__title {
-   margin-bottom: 0;
-}
-
-.sidebar__sticky>.widget-toc>.widget__content {
-   height: 50vh;
-   overflow-y: auto;
+   top: 25px; /* .wrapper padding */
 }
 
 /* history */
@@ -99,6 +90,15 @@ body {
 
 .widget-toc li {
    margin-top: 0.5em;
+}
+
+.widget-toc>.widget__title {
+   margin-bottom: 0;
+}
+
+.widget-toc>.widget__content {
+   height: 50vh;
+   overflow-y: auto;
 }
 
 /* search */
