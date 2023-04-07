@@ -153,6 +153,12 @@ body {
    background: var(--highlight-color);
 }
 
+@media screen and (max-width: 767px) {
+	.widget-toc {
+		display: none;
+	}
+}
+
 /* search */
 .widget-search__form {
    padding: 0;
