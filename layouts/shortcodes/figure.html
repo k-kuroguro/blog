@@ -1,4 +1,6 @@
-<figure class="posts-figure{{ with .Get "class" }} {{ . }}{{ end }}" {{- with .Get "width" }} style="width: {{ . }}px"{{ end -}}>
+<div style="width: 100%; {{ if eq (.Get "align") "center" }} text-align: center;{{ end }}">
+<figure class="{{ with .Get "class" }} {{ . }}{{ end }}"
+   style="max-width: 100%;{{- with .Get "width" }} width: {{ . }}px;{{ end -}}{{ if eq (.Get "align") "center" }} display: inline-block;{{ end }}">
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- end -}}
@@ -8,10 +10,11 @@
          {{- end -}}
          {{- with .Get "width" }} width="{{ . }}"{{ end -}}
          {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+         style="max-width: 100%"
     /><!-- Closing img tag -->
     {{- if .Get "link" }}</a>{{ end -}}
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
-        <figcaption>
+        <figcaption style="text-align: center; color: #000">
             {{ with (.Get "title") -}}
                 <h4>{{ . }}</h4>
             {{- end -}}
@@ -26,3 +29,4 @@
         </figcaption>
     {{- end }}
 </figure>
+</div>

@@ -207,25 +207,6 @@ body {
    outline: none;
 }
 
-/* img */
-.posts-figure {
-   max-width: 100%;
-}
-
-.posts-figure.center {
-   display: block;
-   margin: 0.7rem auto;
-}
-
-.posts-figure>img {
-   max-width: 100%;
-}
-
-.posts-figure>figcaption {
-   text-align: center;
-   color: #000;
-}
-
 /* mobile */
 @media screen and (max-width: 820px) {
 	.wrapper {

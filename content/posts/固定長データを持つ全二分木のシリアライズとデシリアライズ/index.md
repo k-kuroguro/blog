@@ -54,7 +54,7 @@ end function
 
 例として, 各ノードが8ビット固定長のデータを持つ次のような二分木を考える.
 
-{{< figure src="./binary_tree.svg" class="center" width="600" >}}
+{{< figure src="./binary_tree.svg" align="center" width="600" >}}
 
 これを後置順で探索した結果は
 ```text
