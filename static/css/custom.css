@@ -236,3 +236,13 @@ body {
 		margin-top: 20px;
 	}
 }
+
+/* mathjax */
+mjx-math>a {
+   color: #000 !important;
+   font-weight: 400 !important;
+}
+
+mjx-math>a:hover {
+   color: var(--highlight-color) !important;
+}
