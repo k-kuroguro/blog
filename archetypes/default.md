@@ -6,6 +6,7 @@ author: k-kuroguro
 categories: []
 tags: []
 comments: true
+math: false
 draft: true
 ---
 

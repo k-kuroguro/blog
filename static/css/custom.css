@@ -250,3 +250,24 @@ mjx-math>a {
 mjx-math>a:hover {
    color: var(--highlight-color) !important;
 }
+
+/* katex */
+@media screen and (max-width: 820px) {
+   .katex-display {
+      overflow: auto hidden;
+   }
+
+   .katex-display::-webkit-scrollbar {
+      height: 2px;
+   }
+
+   .katex-display::-webkit-scrollbar-track {
+      border-radius: 1px;
+      background: #dadada;
+   }
+
+   .katex-display::-webkit-scrollbar-thumb {
+      border-radius: 1px;
+      background: var(--highlight-color);
+   }
+}

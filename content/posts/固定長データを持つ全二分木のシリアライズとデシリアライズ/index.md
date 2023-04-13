@@ -6,6 +6,7 @@ author: k-kuroguro
 categories: ["技術記事"]
 tags: ["ソフトウェア", "アルゴリズム"]
 comments: true
+math: false
 draft: false
 ---
 

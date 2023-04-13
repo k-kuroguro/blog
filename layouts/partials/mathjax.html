@@ -1,4 +1,4 @@
-{{ if and .IsPage (eq (.Param "mathjax") true) }}
+{{ if and .IsPage (eq (.Param "math_engine") "mathjax") (eq (.Param "math") true) }}
 {{ with .Param "mathjaxConfig" }}
 <script src="{{ . | relURL }}" defer></script>
 {{ end }}

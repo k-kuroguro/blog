@@ -6,6 +6,7 @@ author: k-kuroguro
 categories: ["技術記事"]
 tags: ["ロボット"]
 comments: true
+math: true
 draft: false
 ---
 
@@ -66,7 +67,7 @@ $$
 
 $$
 \begin{equation}
-   v_i=-\sin{(\theta+\alpha_i})\dot{x}+\cos{(\theta+\alpha_i)}\dot{y}+R\dot{\theta} \label{eq:v_move}
+   v_i=-\sin{(\theta+\alpha_i})\dot{x}+\cos{(\theta+\alpha_i)}\dot{y}+R\dot{\theta}
 \end{equation}
 $$
 
@@ -74,17 +75,17 @@ $$
 
 $$
 \begin{equation}
-   v_i=r\dot{\phi}_i \label{eq:v_angular}
+   v_i=r\dot{\phi}_i
 \end{equation}
 $$
 
-ここで式$\eqref{eq:v_move}$に式$\eqref{eq:v_angular}$を代入して
+ここで式$(1)$に式$(2)$を代入して
 
 $$
 \dot{\phi}_i=\frac{1}{r}\{-\sin{(\theta+\alpha_i})\dot{x}+\cos{(\theta+\alpha_i)}\dot{y}+R\dot{\theta}\}
 $$
 
-上式は, 式$\eqref{eq:v_angular_global_matrix}$のような行列表現に変換できる.
+上式は, 式$(3)$のような行列表現に変換できる.
 
 <div>
 $$
@@ -106,7 +107,6 @@ $$
       \dot{y}\\
       \dot{\theta}\\
    \end{bmatrix}
-   \label{eq:v_angular_global_matrix}
 \end{equation}
 $$
 </div>
@@ -132,12 +132,11 @@ $$
       \dot{y}_\mathrm{L}\\
       \dot{\theta}\\
    \end{bmatrix}
-   \label{eq:coordinate_transform}
 \end{equation}
 $$
 </div>
 
-式$\eqref{eq:coordinate_transform}$を式$\eqref{eq:v_angular_global_matrix}$に代入し
+式$(4)$を式$(3)$に代入し
 
 <div>
 $$
@@ -164,12 +163,11 @@ $$
       \dot{y}_\mathrm{L}\\
       \dot{\theta}\\
    \end{bmatrix}
-   \label{eq:v_angular_local_matrix}
 \end{equation}
 $$
 </div>
 
-式$\eqref{eq:v_angular_local_matrix}$は, ホイール数に対して一般化できる.
+式$(5)$は, ホイール数に対して一般化できる.
 
 <div>
 $$
