@@ -110,6 +110,10 @@ body {
    vertical-align: middle;
 }
 
+.widget-author__link-icon:hover {
+   fill: var(--highlight-color);
+}
+
 .widget-author__link-icon {
 	width: 21px;
 	width: 1.3rem;
