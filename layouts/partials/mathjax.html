@@ -1,0 +1,6 @@
+{{ if and .IsPage (eq (.Param "mathjax") true) }}
+{{ with .Param "mathjaxConfig" }}
+<script src="{{ . | relURL }}" defer></script>
+{{ end }}
+<script src="{{ .Param "mathjaxPath" | default "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" }}" defer></script>
+{{ end }}
